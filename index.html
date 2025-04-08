@@ -12,28 +12,85 @@
       rel="stylesheet"
     />
     <style>
-      /* Basic styling for demonstration */
+      /* Basic styling for demonstration and improvements */
       body {
         font-family: 'Fredoka', sans-serif;
-        background-color: #f7f7f7;
+        background: linear-gradient(135deg, #f7f7f7, #eaeaea);
         margin: 0;
         padding: 0;
+        color: #333;
+        animation: fadeInPage 1s ease-in;
+      }
+      @keyframes fadeInPage {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
       }
       header {
         background: #fbd14b;
         padding: 20px;
         text-align: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        animation: slideDown 0.8s ease-out;
+      }
+      @keyframes slideDown {
+        from { transform: translateY(-50px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2rem;
+      }
+      nav {
+        margin-top: 10px;
       }
       nav a {
         margin: 0 15px;
         color: #333;
         font-weight: 600;
         text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      nav a:hover {
+        color: #555;
       }
       main {
         padding: 20px;
         max-width: 800px;
-        margin: auto;
+        margin: 30px auto;
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        animation: fadeInContent 1s ease-in-out;
+      }
+      @keyframes fadeInContent {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      section {
+        margin-bottom: 40px;
+      }
+      section h2 {
+        border-bottom: 2px solid #fbd14b;
+        padding-bottom: 8px;
+      }
+      #character-progress {
+        text-align: center;
+      }
+      #character-stage {
+        margin: 20px 0;
+        animation: popIn 0.5s ease-out;
+      }
+      @keyframes popIn {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+      #character-img {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 50%;
+      }
+      #character-img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       }
       .action-btn {
         background: #fbd14b;
@@ -43,16 +100,62 @@
         font-size: 1rem;
         cursor: pointer;
         border-radius: 5px;
+        transition: background 0.3s ease, transform 0.2s ease;
+      }
+      .action-btn:hover {
+        background: #f9c84a;
+        transform: translateY(-2px);
       }
       .dev {
         background: #e74c3c;
         color: #fff;
       }
+      .dev:hover {
+        background: #cf3f33;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+      }
+      th {
+        background: #fbd14b;
+      }
+      ul {
+        list-style: disc;
+        padding-left: 20px;
+      }
+      footer {
+        background: #333;
+        color: #fff;
+        text-align: center;
+        padding: 15px 0;
+        margin-top: 30px;
+        animation: fadeInFooter 1s ease-in;
+      }
+      @keyframes fadeInFooter {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      /* Video container styling for better appearance */
       #video-container {
         margin: 20px auto;
+        border: 2px solid #fbd14b;
+        border-radius: 8px;
+        overflow: hidden;
+        animation: fadeInVideo 0.8s ease-in;
+      }
+      @keyframes fadeInVideo {
+        from { opacity: 0; }
+        to { opacity: 1; }
       }
       #video-overlay {
-        background: rgba(0,0,0,0.5);
+        background: rgba(0, 0, 0, 0.5);
       }
     </style>
     <!-- NOTE: We are using the native FaceDetector API which is currently supported in Chrome and Edge.
@@ -81,7 +184,7 @@
       <section id="character-progress">
         <h2>Your Bao Bao Progress</h2>
         <div id="character-stage">
-          <img id="character-img" src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Character Stage" width="150" style="border-radius:50%;" />
+          <img id="character-img" src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Character Stage" width="150" />
           <p id="character-title">Stage: Baby Chick</p>
           <p id="points-display">Points: 0</p>
           <!-- Valid sample code: CAFE2025APR08 -->
@@ -101,9 +204,9 @@
         <h2>How It Works</h2>
         <ul>
           <li><strong>Code Entry & Scan:</strong> Enter a daily visit code or use your camera to verify your face and smile for points!</li>
-          <li><strong>Level Up:</strong> Watch your character evolve as you gain points</li>
-          <li><strong>Mini Games:</strong> Enjoy simple in-app games for bonus rewards</li>
-          <li><strong>Bao Bao Surprises:</strong> Receive tips and surprise gifts from Bao Bao</li>
+          <li><strong>Level Up:</strong> Watch your character evolve as you gain points.</li>
+          <li><strong>Mini Games:</strong> Enjoy simple in-app games for bonus rewards.</li>
+          <li><strong>Bao Bao Surprises:</strong> Receive tips and surprise gifts from Bao Bao.</li>
         </ul>
       </section>
       <section id="rewards">
@@ -149,10 +252,10 @@
       <section id="implementation">
         <h2>Implementation</h2>
         <ul>
-          <li>No app download required! Works via WeChat, WhatsApp, or Web QR Code</li>
+          <li>No app download required! Works via WeChat, WhatsApp, or Web QR Code.</li>
           <li>Quick Scan System: Use code entry or camera scan; the system detects your face then your smile to award points.</li>
-          <li>All points are stored digitally</li>
-          <li>A real-time dashboard shows your points and level</li>
+          <li>All points are stored digitally.</li>
+          <li>A real-time dashboard shows your points and level.</li>
         </ul>
       </section>
       <section id="about">
@@ -171,13 +274,13 @@
         console.log("DOM loaded.");
         let points = 0;
         const stages = [
-          { min: 0, title: "Baby Chick", img: "https://cdn-icons-png.flaticon.com/512/616/616408.png" },
-          { min: 50, title: "Bao Bao Dumpling", img: "https://cdn-icons-png.flaticon.com/512/9711/9711938.png" },
-          { min: 150, title: "Junior Chef", img: "https://cdn-icons-png.flaticon.com/512/135/135620.png" },
-          { min: 300, title: "Golden Baker", img: "https://cdn-icons-png.flaticon.com/512/706/706164.png" },
-          { min: 500, title: "Master Bao Bao", img: "https://cdn-icons-png.flaticon.com/512/1828/1828884.png" }
+          { min: 0, title: "Baby Chick", img: "./starting.jpeg" },
+          { min: 50, title: "Bao Bao Dumpling", img: "./Dough.jpeg" },
+          { min: 150, title: "Junior Chef", img: "./Baker.jpeg" },
+          { min: 300, title: "Golden Baker", img: "./Master%20Baker.jpeg" },
+          { min: 500, title: "Master Bao Bao", img: "./output.jpg" }
         ];
-
+  
         const pointsDisplay = document.getElementById("points-display");
         const characterImg = document.getElementById("character-img");
         const characterTitle = document.getElementById("character-title");
@@ -187,7 +290,7 @@
         const videoContainer = document.getElementById("video-container");
         const videoElem = document.getElementById("video-stream");
         const overlay = document.getElementById("video-overlay");
-
+  
         function updateCharacter() {
           for (let i = stages.length - 1; i >= 0; i--) {
             if (points >= stages[i].min) {
@@ -199,12 +302,12 @@
           pointsDisplay.textContent = "Points: " + points;
           console.log("Points updated:", points);
         }
-
+  
         function addPoints(value) {
           points += value;
           updateCharacter();
         }
-
+  
         // Code Entry Button Logic
         codeEntryBtn.addEventListener("click", function () {
           console.log("Code Entry clicked.");
@@ -217,14 +320,14 @@
             alert("Invalid code. Please try again with a valid code.");
           }
         });
-
+  
         // Developer Button Logic
         devBtn.addEventListener("click", function () {
           console.log("Dev button clicked.");
           addPoints(50);
           alert("Dev: 50 points added.");
         });
-
+  
         // Scan Button Logic using the native FaceDetector API
         scanBtn.addEventListener("click", async function () {
           console.log("Scan button clicked.");
@@ -243,9 +346,8 @@
             overlay.textContent = "Camera access error.";
           }
         });
-
+  
         async function detectionStage1() {
-          // Use the native FaceDetector API if available.
           if ("FaceDetector" in window) {
             const detector = new FaceDetector({ maxDetectedFaces: 1, fastMode: true });
             let startTime = Date.now();
@@ -266,24 +368,19 @@
               } catch (error) {
                 console.error("Face detection error:", error);
                 clearInterval(interval);
-                // Fallback: force pass if error occurs.
                 overlay.textContent = "Face recognized by force! Now, please smile.";
                 setTimeout(detectionStage2, 500);
               }
             }, 300);
           } else {
-            // Fallback if FaceDetector API is not available.
             console.log("FaceDetector API not available. Forcing face detection pass.");
             overlay.textContent = "Face recognized by fallback! Now, please smile.";
             setTimeout(detectionStage2, 500);
           }
         }
-
+  
         async function detectionStage2() {
-          // Since the native FaceDetector API doesn't do expression analysis, simulate smile detection.
-          // In a production system, you might integrate a more advanced ML model for smile recognition.
           overlay.textContent = "Please smile! (Simulated detection)";
-          // Wait 3 seconds to simulate smile detection.
           setTimeout(() => {
             console.log("Smile detected via simulation.");
             overlay.textContent = "Smile recognized! 10 points awarded.";
@@ -291,7 +388,7 @@
             setTimeout(finishDetection, 1000);
           }, 3000);
         }
-
+  
         function finishDetection() {
           const stream = videoElem.srcObject;
           if (stream) {
@@ -304,10 +401,9 @@
             console.log("Detection cycle finished.");
           }, 1000);
         }
-
+  
         updateCharacter();
       });
     </script>
   </body>
 </html>
-
