@@ -194,7 +194,7 @@
         </div>
         <!-- Video container for scanning -->
         <div id="video-container" style="position:relative; display:none; width:300px; margin:auto;">
-          <video id="video-stream" style="width:300px;" autoplay muted></video>
+          <video id="video-stream" style="width:300px;" autoplay muted playsinline webkit-playsinline></video>
           <div id="video-overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:1.2rem; text-align:center; color:#fff;">
             <!-- Overlay text will be inserted here -->
           </div>
@@ -311,7 +311,6 @@
         // Code Entry Button Logic
         codeEntryBtn.addEventListener("click", function () {
           console.log("Code Entry clicked.");
-          // Sample valid code is "CAFE2025APR08"
           let code = prompt("Enter today's cafe visit code (e.g., CAFE2025APR08):");
           if (code && code.trim() === "CAFE2025APR08") {
             addPoints(10);
@@ -334,12 +333,10 @@
           videoContainer.style.display = "block";
           overlay.textContent = "Initializing camera...";
           try {
-            // Request video stream
             const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
             videoElem.srcObject = stream;
             await videoElem.play();
             overlay.textContent = "Detecting face...";
-            // Start face detection using the native FaceDetector API if available
             detectionStage1();
           } catch (err) {
             console.error("Camera error:", err);
