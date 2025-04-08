@@ -75,30 +75,19 @@
         border-bottom: 2px solid #fbd14b;
         padding-bottom: 8px;
       }
-      /* Auth Sections */
-      #registration,
-      #login,
-      #account {
+      /* Auth & Account Sections */
+      #registration, #login, #account {
         border: 2px solid #fbd14b;
         padding: 15px;
         margin-bottom: 30px;
         border-radius: 8px;
       }
-      #registration h2,
-      #login h2,
-      #account h2 { margin-top: 0; }
-      #registration input[type="text"],
-      #registration input[type="password"],
-      #login input[type="text"],
-      #login input[type="password"] {
-        padding: 8px;
-        width: calc(100% - 20px);
-        margin: 5px 0;
-        box-sizing: border-box;
-        autocomplete: off;
+      #registration h2, #login h2, #account h2 { margin-top: 0; }
+      input[type="text"], input[type="password"] {
+        padding: 8px; width: calc(100% - 20px);
+        margin: 5px 0; box-sizing: border-box;
       }
-      #registration button,
-      #login button {
+      button {
         background: #fbd14b;
         border: none;
         padding: 10px 20px;
@@ -107,80 +96,36 @@
         border-radius: 5px;
         transition: background 0.3s ease, transform 0.2s ease;
       }
-      #registration button:hover,
-      #login button:hover {
-        background: #f9c84a;
-        transform: translateY(-2px);
-      }
-      .notice {
-        font-size: 1rem;
-        margin-bottom: 10px;
-      }
-      .notice a {
-        color: #fbd14b;
-        text-decoration: none;
-        font-weight: 600;
-      }
+      button:hover { background: #f9c84a; transform: translateY(-2px); }
+      .notice { font-size: 1rem; margin-bottom: 10px; }
+      .notice a { color: #fbd14b; font-weight: 600; text-decoration: none; }
       .notice a:hover { text-decoration: underline; }
       /* Account Info */
       #account-info p { font-size: 1rem; margin: 5px 0; }
-      #account-info img {
-        display: block;
-        margin: 10px auto;
-        border-radius: 50%;
-      }
+      #account-info img { display: block; margin: 10px auto; border-radius: 50%; }
       /* Character Progress */
       #character-progress { text-align: center; }
-      #character-stage {
-        margin: 20px 0;
-        animation: popIn 0.5s ease-out;
-      }
+      #character-stage { margin: 20px 0; animation: popIn 0.5s ease-out; }
       @keyframes popIn {
         from { transform: scale(0.8); opacity: 0; }
         to { transform: scale(1); opacity: 1; }
       }
-      #character-img,
-      #account-character-img {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-radius: 50%;
+      #character-img, #account-character-img {
+        transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 50%;
       }
-      #character-img:hover,
-      #account-character-img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      #character-img:hover, #account-character-img:hover {
+        transform: scale(1.05); box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       }
-      .action-btn {
-        background: #fbd14b;
-        border: none;
-        padding: 10px 20px;
-        margin: 5px;
-        font-size: 1rem;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background 0.3s ease, transform 0.2s ease;
-      }
-      .action-btn:hover { background: #f9c84a; transform: translateY(-2px); }
+      .action-btn { margin: 5px; }
       .dev { background: #e74c3c; color: #fff; }
       .dev:hover { background: #cf3f33; }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px;
-      }
-      th, td {
-        border: 1px solid #ddd;
-        padding: 10px;
-        text-align: center;
-      }
+      table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+      th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
       th { background: #fbd14b; }
       ul { list-style: disc; padding-left: 20px; }
       footer {
-        background: #333;
-        color: #fff;
-        text-align: center;
-        padding: 15px 0;
-        margin-top: 30px;
-        animation: fadeInFooter 1s ease-in;
+        background: #333; color: #fff; text-align: center;
+        padding: 15px 0; margin-top: 30px; animation: fadeInFooter 1s ease-in;
       }
       @keyframes fadeInFooter {
         from { opacity: 0; transform: translateY(20px); }
@@ -194,46 +139,25 @@
         overflow: hidden;
         animation: fadeInVideo 0.8s ease-in;
       }
-      @keyframes fadeInVideo {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
+      @keyframes fadeInVideo { from { opacity: 0; } to { opacity: 1; } }
       #video-overlay { background: rgba(0, 0, 0, 0.5); }
       
-      /* Modal Styles */
+      /* Modal for non-logged in account access */
       #modal-notice {
         display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        position: fixed; top: 0; left: 0;
+        width: 100%; height: 100%;
         background-color: rgba(0,0,0,0.5);
-        align-items: center;
-        justify-content: center;
+        align-items: center; justify-content: center;
         z-index: 1000;
       }
       #modal-notice .modal-content {
-        background: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        text-align: center;
-        max-width: 400px;
-        width: 90%;
+        background: #fff; padding: 20px;
+        border-radius: 8px; text-align: center;
+        max-width: 400px; width: 90%;
       }
       #modal-notice button {
-        background: #fbd14b;
-        border: none;
-        padding: 10px 20px;
         margin-top: 15px;
-        font-size: 1rem;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background 0.3s ease, transform 0.2s ease;
-      }
-      #modal-notice button:hover {
-        background: #f9c84a;
-        transform: translateY(-2px);
       }
     </style>
   </head>
@@ -241,38 +165,20 @@
     <header>
       <h1><i class="fa-solid fa-bread-slice"></i> Bao Bao’s Bakery Quest</h1>
       <nav>
-        <a href="#registration" id="nav-register">
-          <i class="fa-solid fa-user-plus"></i> Register
-        </a>
-        <a href="#login" id="nav-login">
-          <i class="fa-solid fa-right-to-bracket"></i> Login
-        </a>
-        <a href="#account" id="nav-account">
-          <i class="fa-solid fa-user"></i> Account
-        </a>
-        <a href="#concept">
-          <i class="fa-solid fa-lightbulb"></i> Concept
-        </a>
-        <a href="#how-it-works">
-          <i class="fa-solid fa-circle-info"></i> How It Works
-        </a>
-        <a href="#rewards">
-          <i class="fa-solid fa-gift"></i> Reward System
-        </a>
-        <a href="#implementation">
-          <i class="fa-solid fa-code"></i> Implementation
-        </a>
-        <a href="#about">
-          <i class="fa-solid fa-address-card"></i> About
-        </a>
+        <a id="nav-register"><i class="fa-solid fa-user-plus"></i> Register</a>
+        <a id="nav-login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+        <a id="nav-account"><i class="fa-solid fa-user"></i> Account</a>
+        <a href="#concept"><i class="fa-solid fa-lightbulb"></i> Concept</a>
+        <a href="#how-it-works"><i class="fa-solid fa-circle-info"></i> How It Works</a>
+        <a href="#rewards"><i class="fa-solid fa-gift"></i> Reward System</a>
+        <a href="#implementation"><i class="fa-solid fa-code"></i> Implementation</a>
+        <a href="#about"><i class="fa-solid fa-address-card"></i> About</a>
       </nav>
     </header>
     <main>
       <section id="registration" style="display:none;">
         <h2><i class="fa-solid fa-user-plus"></i> Register</h2>
-        <p class="notice">
-          Already have an account? <a href="#" id="show-login">Log in here.</a>
-        </p>
+        <p class="notice">Already have an account? <a href="#" id="show-login">Log in here.</a></p>
         <form id="registration-form" autocomplete="off">
           <input type="text" id="reg-username" placeholder="Username" required />
           <input type="password" id="reg-password" placeholder="Password" required />
@@ -281,9 +187,7 @@
       </section>
       <section id="login">
         <h2><i class="fa-solid fa-right-to-bracket"></i> Login</h2>
-        <p class="notice">
-          Don't have an account yet? <a href="#" id="show-registration">Register here.</a>
-        </p>
+        <p class="notice">Don't have an account yet? <a href="#" id="show-registration">Register here.</a></p>
         <form id="login-form" autocomplete="off">
           <input type="text" id="login-username" placeholder="Username" required />
           <input type="password" id="login-password" placeholder="Password" required />
@@ -406,10 +310,13 @@
     <footer>
       <p>&copy; 2025 Bao Bao’s Bakery Quest. All rights reserved.</p>
     </footer>
+    
     <script>
-      document.addEventListener("DOMContentLoaded", async function () {
-        let points = 0;
-        let currentUser = null;
+      // Utility: Simplified function to get element by Id.
+      const $ = id => document.getElementById(id);
+      
+      document.addEventListener("DOMContentLoaded", function () {
+        let points = 0, currentUser = null;
         const stages = [
           { min: 0, title: "Baby Chick", img: "./starting.jpeg" },
           { min: 50, title: "Bao Bao Dumpling", img: "./Dough.jpeg" },
@@ -418,70 +325,68 @@
           { min: 500, title: "Master Bao Bao", img: "./output.jpg" }
         ];
       
-        // Element references
-        const registrationForm = document.getElementById("registration-form");
-        const regUsernameInput = document.getElementById("reg-username");
-        const regPasswordInput = document.getElementById("reg-password");
-        const loginForm = document.getElementById("login-form");
-        const loginUsernameInput = document.getElementById("login-username");
-        const loginPasswordInput = document.getElementById("login-password");
-        const accountSection = document.getElementById("account");
-        const accountUsername = document.getElementById("account-username");
-        const accountCharacterImg = document.getElementById("account-character-img");
-        const accountStageTitle = document.getElementById("account-stage-title");
-        const accountPointsValue = document.getElementById("account-points-value");
-        const logoutBtn = document.getElementById("logout-btn");
-        const codeEntryBtn = document.getElementById("code-entry-btn");
-        const scanBtn = document.getElementById("scan-btn");
-        const devBtn = document.getElementById("dev-btn");
-        const pointsDisplay = document.getElementById("points-display");
-        const characterImg = document.getElementById("character-img");
-        const characterTitle = document.getElementById("character-title");
-        const videoContainer = document.getElementById("video-container");
-        const videoElem = document.getElementById("video-stream");
-        const overlay = document.getElementById("video-overlay");
+        // Cached element references
+        const registrationForm = $("registration-form"),
+              loginForm = $("login-form"),
+              accountSection = $("account"),
+              codeEntryBtn = $("code-entry-btn"),
+              scanBtn = $("scan-btn"),
+              devBtn = $("dev-btn"),
+              videoContainer = $("video-container"),
+              videoElem = $("video-stream"),
+              overlay = $("video-overlay");
       
-        const navRegister = document.getElementById("nav-register");
-        const navLogin = document.getElementById("nav-login");
-        const navAccount = document.getElementById("nav-account");
+        const navRegister = $("nav-register"),
+              navLogin = $("nav-login"),
+              navAccount = $("nav-account"),
+              modalNotice = $("modal-notice"),
+              modalCloseBtn = $("modal-close-btn");
       
-        const modalNotice = document.getElementById("modal-notice");
-        const modalCloseBtn = document.getElementById("modal-close-btn");
-      
-        // Update character state
+        // Update character function
         function updateCharacter() {
           for (let i = stages.length - 1; i >= 0; i--) {
             if (points >= stages[i].min) {
-              characterImg.src = stages[i].img;
-              characterTitle.textContent = "Stage: " + stages[i].title;
-              if (accountCharacterImg) {
-                accountCharacterImg.src = stages[i].img;
-                accountStageTitle.textContent = stages[i].title;
-              }
+              $("character-img").src = stages[i].img;
+              $("character-title").textContent = "Stage: " + stages[i].title;
+              $("account-character-img").src = stages[i].img;
+              $("account-stage-title").textContent = stages[i].title;
               break;
             }
           }
-          pointsDisplay.textContent = "Points: " + points;
-          accountPointsValue.textContent = points;
+          $("points-display").textContent = "Points: " + points;
+          $("account-points-value").textContent = points;
         }
       
-        // Add points
+        // Add points and update
         function addPoints(value) {
           points += value;
           updateCharacter();
           if (currentUser) {
-            let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
-            for (let user of registeredUsers) {
+            const users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+            users.forEach(user => {
               if (user.username === currentUser) {
                 user.points = points;
-                break;
               }
-            }
-            localStorage.setItem("registeredUsers", JSON.stringify(registeredUsers));
+            });
+            localStorage.setItem("registeredUsers", JSON.stringify(users));
           }
         }
       
-        // Enable/disable action buttons
+        // Manage auth UI state
+        function setAuthState(loggedIn) {
+          if (loggedIn) {
+            $("registration").style.display = "none";
+            $("login").style.display = "none";
+            $("account").style.display = "block";
+            enableActions();
+          } else {
+            $("registration").style.display = "none";
+            $("login").style.display = "block";
+            $("account").style.display = "none";
+            disableActions();
+          }
+        }
+      
         function enableActions() {
           codeEntryBtn.disabled = false;
           scanBtn.disabled = false;
@@ -494,131 +399,98 @@
           devBtn.disabled = true;
         }
       
-        // Display account info
         function showAccountInfo() {
-          accountUsername.textContent = currentUser;
-          accountPointsValue.textContent = points;
-          accountSection.style.display = "block";
+          $("account-username").textContent = currentUser;
+          $("account-points-value").textContent = points;
         }
       
-        // Hide authentication forms
-        function hideAuthForms() {
-          document.getElementById("registration").style.display = "none";
-          document.getElementById("login").style.display = "none";
+        // Auth persistence
+        function loadUser() {
+          currentUser = localStorage.getItem("currentUser");
+          if (currentUser) {
+            const users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+            const user = users.find(u => u.username === currentUser);
+            points = user ? user.points : 0;
+            setAuthState(true);
+            showAccountInfo();
+            updateCharacter();
+          } else {
+            setAuthState(false);
+          }
         }
       
-        // Registration form handling
+        // Registration handler
         registrationForm.addEventListener("submit", function (e) {
           e.preventDefault();
-          const username = regUsernameInput.value.trim();
-          const password = regPasswordInput.value.trim();
-          let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
-          const exists = registeredUsers.some(u => u.username === username);
-          if (exists) {
+          const username = $("reg-username").value.trim(),
+                password = $("reg-password").value.trim();
+          let users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+          if (users.some(u => u.username === username)) {
             alert("Username already exists.");
           } else {
-            registeredUsers.push({ username, password, points: 0 });
-            localStorage.setItem("registeredUsers", JSON.stringify(registeredUsers));
+            users.push({ username, password, points: 0 });
+            localStorage.setItem("registeredUsers", JSON.stringify(users));
             localStorage.setItem("currentUser", username);
-            currentUser = username;
-            points = 0;
+            currentUser = username; points = 0;
             alert("Registration successful.");
-            hideAuthForms();
-            enableActions();
+            setAuthState(true);
             showAccountInfo();
-            regUsernameInput.value = "";
-            regPasswordInput.value = "";
-            loginUsernameInput.value = "";
-            loginPasswordInput.value = "";
+            updateCharacter();
+            $("reg-username").value = "";
+            $("reg-password").value = "";
+            $("login-username").value = "";
+            $("login-password").value = "";
           }
         });
       
-        // Login form handling
+        // Login handler
         loginForm.addEventListener("submit", function (e) {
           e.preventDefault();
-          const username = loginUsernameInput.value.trim();
-          const password = loginPasswordInput.value.trim();
-          let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
-          const user = registeredUsers.find(u => u.username === username && u.password === password);
+          const username = $("login-username").value.trim(),
+                password = $("login-password").value.trim();
+          let users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+          const user = users.find(u => u.username === username && u.password === password);
           if (user) {
             localStorage.setItem("currentUser", username);
-            currentUser = username;
-            points = user.points || 0;
+            currentUser = username; points = user.points || 0;
             alert("Login successful.");
-            hideAuthForms();
-            enableActions();
+            setAuthState(true);
             showAccountInfo();
             updateCharacter();
-            loginUsernameInput.value = "";
-            loginPasswordInput.value = "";
+            $("login-username").value = "";
+            $("login-password").value = "";
           } else {
             alert("Invalid username or password.");
           }
         });
       
-        // Logout functionality
-        logoutBtn.addEventListener("click", function () {
+        // Logout handler
+        $("logout-btn").addEventListener("click", function () {
           localStorage.removeItem("currentUser");
-          currentUser = null;
-          points = 0;
+          currentUser = null; points = 0;
           alert("Logged out successfully.");
-          disableActions();
-          document.getElementById("registration").style.display = "none";
-          document.getElementById("login").style.display = "block";
-          accountSection.style.display = "none";
+          setAuthState(false);
+          $("login-username").value = "";
+          $("login-password").value = "";
           updateCharacter();
-          loginUsernameInput.value = "";
-          loginPasswordInput.value = "";
         });
       
-        // Check user login state on page load
-        currentUser = localStorage.getItem("currentUser");
-        if (currentUser) {
-          let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
-          const user = registeredUsers.find(u => u.username === currentUser);
-          points = (user && user.points) || 0;
-          hideAuthForms();
-          enableActions();
-          showAccountInfo();
-          updateCharacter();
-        } else {
-          disableActions();
-        }
-      
-        // Switch between registration and login forms
-        document.getElementById("show-registration").addEventListener("click", function (e) {
-          e.preventDefault();
-          document.getElementById("login").style.display = "none";
-          document.getElementById("registration").style.display = "block";
+        // Navigation: If logged in and press Register/Login, auto logout.
+        [navRegister, navLogin].forEach(nav => {
+          nav.addEventListener("click", function (e) {
+            e.preventDefault();
+            if (currentUser) $("logout-btn").click();
+            if (e.target.id === "nav-register") {
+              $("login").style.display = "none";
+              $("registration").style.display = "block";
+            } else {
+              $("registration").style.display = "none";
+              $("login").style.display = "block";
+            }
+          });
         });
       
-        document.getElementById("show-login").addEventListener("click", function (e) {
-          e.preventDefault();
-          document.getElementById("registration").style.display = "none";
-          document.getElementById("login").style.display = "block";
-        });
-      
-        // Navigation header button functionality
-        navRegister.addEventListener("click", function (e) {
-          e.preventDefault();
-          // If logged in, log out automatically when pressing Registration
-          if (currentUser) {
-            logoutBtn.click();
-          }
-          document.getElementById("login").style.display = "none";
-          document.getElementById("registration").style.display = "block";
-        });
-        navLogin.addEventListener("click", function (e) {
-          e.preventDefault();
-          // If logged in, log out automatically when pressing Login
-          if (currentUser) {
-            logoutBtn.click();
-          }
-          document.getElementById("registration").style.display = "none";
-          document.getElementById("login").style.display = "block";
-        });
-      
-        // Custom modal for non-logged in account access
+        // Navigation Account: if not logged in, show modal prompt
         navAccount.addEventListener("click", function (e) {
           e.preventDefault();
           if (!currentUser) {
@@ -628,11 +500,11 @@
           }
         });
       
-        modalCloseBtn.addEventListener("click", function () {
+        modalCloseBtn.addEventListener("click", () => {
           modalNotice.style.display = "none";
         });
       
-        // Code Entry Button Logic
+        // Code Entry, Dev and Scan handlers
         codeEntryBtn.addEventListener("click", function () {
           let code = prompt("Enter today's cafe visit code (e.g., CAFE2025APR08):");
           if (code && code.trim() === "CAFE2025APR08") {
@@ -643,13 +515,11 @@
           }
         });
       
-        // Developer Button Logic
         devBtn.addEventListener("click", function () {
           addPoints(50);
           alert("Dev: 50 points added.");
         });
       
-        // Scan Button Logic using native FaceDetector
         scanBtn.addEventListener("click", async function () {
           videoContainer.style.display = "block";
           overlay.textContent = "Initializing camera...";
@@ -667,7 +537,7 @@
         async function detectionStage1() {
           if ("FaceDetector" in window) {
             const detector = new FaceDetector({ maxDetectedFaces: 1, fastMode: true });
-            let startTime = Date.now();
+            const startTime = Date.now();
             const interval = setInterval(async () => {
               try {
                 const faces = await detector.detect(videoElem);
@@ -703,16 +573,14 @@
       
         function finishDetection() {
           const stream = videoElem.srcObject;
-          if (stream) {
-            stream.getTracks().forEach((track) => track.stop());
-          }
+          if (stream) stream.getTracks().forEach(track => track.stop());
           setTimeout(() => {
             videoContainer.style.display = "none";
             overlay.textContent = "";
           }, 1000);
         }
       
-        updateCharacter();
+        loadUser();
       });
     </script>
   </body>
