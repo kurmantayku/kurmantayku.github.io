@@ -178,7 +178,9 @@
     <main>
       <section id="registration" style="display:none;">
         <h2><i class="fa-solid fa-user-plus"></i> Register</h2>
-        <p class="notice">Already have an account? <a href="#" id="show-login">Log in here.</a></p>
+        <p class="notice">
+          Already have an account? <a href="#" id="show-login">Log in here.</a>
+        </p>
         <form id="registration-form" autocomplete="off">
           <input type="text" id="reg-username" placeholder="Username" required />
           <input type="password" id="reg-password" placeholder="Password" required />
@@ -187,7 +189,9 @@
       </section>
       <section id="login">
         <h2><i class="fa-solid fa-right-to-bracket"></i> Login</h2>
-        <p class="notice">Don't have an account yet? <a href="#" id="show-registration">Register here.</a></p>
+        <p class="notice">
+          Don't have an account? <a href="#" id="show-registration">Register here.</a>
+        </p>
         <form id="login-form" autocomplete="off">
           <input type="text" id="login-username" placeholder="Username" required />
           <input type="password" id="login-password" placeholder="Password" required />
@@ -482,7 +486,7 @@
           nav.addEventListener("click", function (e) {
             e.preventDefault();
             if (currentUser) $("logout-btn").click();
-            if (e.target.id === "nav-register") {
+            if (e.currentTarget.id === "nav-register") {
               $("login").style.display = "none";
               $("registration").style.display = "block";
             } else {
@@ -504,6 +508,19 @@
       
         modalCloseBtn.addEventListener("click", () => {
           modalNotice.style.display = "none";
+        });
+      
+        // Event listeners for redirect links in notices
+        $("show-login").addEventListener("click", function (e) {
+          e.preventDefault();
+          $("registration").style.display = "none";
+          $("login").style.display = "block";
+        });
+      
+        $("show-registration").addEventListener("click", function (e) {
+          e.preventDefault();
+          $("login").style.display = "none";
+          $("registration").style.display = "block";
         });
       
         // Code Entry, Dev and Scan handlers
